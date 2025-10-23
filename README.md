@@ -1,42 +1,4 @@
-<!-- The content below uses HTML and Tailwind CSS classes for improved readability and structure on platforms like GitHub. -->
 
-<script src="https://www.google.com/search?q=https://cdn.tailwindcss.com"></script>
-
-<style>
-@import url('https://www.google.com/search?q=https://fonts.googleapis.com/css2%3Ffamily%3DInter:wght%40400%3B600%3B700%26display%3Dswap');
-/* Global Font and Utility Styling */
-body { font-family: 'Inter', sans-serif; }
-.card { border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); }
-
-/* Code Block Styling */
-.code-block { background-color: #1e293b; color: #f8fafc; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
-.inline-code { background-color: #fef9c3; color: #854d0e; padding: 0.1rem 0.3rem; border-radius: 0.25rem; font-weight: 600; }
-
-/* Table Styling */
-.table-header { background-color: #334155; color: #f8fafc; }
-.table-row-odd { background-color: #f1f5f9; }
-.table-row-even { background-color: #e2e8f0; }
-
-/* Alert/Note Styling */
-.alert-info { background-color: #e0f2fe; color: #075985; padding: 0.75rem; border-left: 4px solid #0ea5e9; border-radius: 0.5rem; }
-.alert-warning { background-color: #fffbeb; color: #92400e; padding: 0.75rem; border-left: 4px solid #f59e0b; border-radius: 0.5rem; }
-
-/* Responsive Image Container */
-.image-container {
-display: flex;
-justify-content: center;
-align-items: center;
-width: 100%;
-overflow: hidden;
-}
-.image-container img {
-max-width: 100%;
-height: auto;
-border-radius: 0.5rem;
-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-}
-
-</style>
 
 <div class="p-6 md:p-10 lg:p-12">
 
