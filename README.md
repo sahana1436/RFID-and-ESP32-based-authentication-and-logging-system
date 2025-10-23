@@ -73,7 +73,7 @@ This system provides a robust, cloud-integrated method for authenticating users.
 IMPORTANT: Replace the placeholder URL below with a direct link to the image
 after setting the Google Drive permissions to "Anyone with the link can view."
 -->
-<img src="https://www.google.com/search?q=https://drive.google.com/file/d/1CjbkilMulPmuYmdqzegZh-EatnOVB7-A/view%3Fusp%3Ddrivesdk"
+<img src="https://drive.google.com/file/d/1CjbkilMulPmuYmdqzegZh-EatnOVB7-A/view?usp=sharing"
 alt="Physical wiring diagram of ESP32, RFID, and OLED on a breadboard."
 onerror="this.onerror=null; this.src='https://www.google.com/search?q=https://placehold.co/800x450/1e293b/f1f5f9%3Ftext%3DImage%2BPlaceholder%250AReplace%2Bwith%2BDirect%2BPublic%2BLink';">
 </div>
