@@ -20,6 +20,22 @@ body { font-family: 'Inter', sans-serif; }
 /* Alert/Note Styling */
 .alert-info { background-color: #e0f2fe; color: #075985; padding: 0.75rem; border-left: 4px solid #0ea5e9; border-radius: 0.5rem; }
 .alert-warning { background-color: #fffbeb; color: #92400e; padding: 0.75rem; border-left: 4px solid #f59e0b; border-radius: 0.5rem; }
+
+/* Responsive Image Container */
+.image-container {
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+overflow: hidden;
+}
+.image-container img {
+max-width: 100%;
+height: auto;
+border-radius: 0.5rem;
+box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
 </style>
 
 <div class="p-6 md:p-10 lg:p-12">
@@ -89,8 +105,16 @@ This system provides a robust, cloud-integrated method for authenticating users.
 <!-- Physical Wiring Diagram Integration -->
 
 <div class="my-6 p-4 border rounded-lg bg-gray-50">
-<p class="text-center font-semibold mb-2">Physical Setup and Wiring Connections</p>
-
+<p class="text-center font-semibold mb-2 text-xl">1. Physical Setup and Wiring Connections</p>
+<div class="image-container">
+<!--
+IMPORTANT: Replace the placeholder URL below with a direct link to the image
+after setting the Google Drive permissions to "Anyone with the link can view."
+-->
+<img src="https://www.google.com/search?q=https://drive.google.com/file/d/1CjbkilMulPmuYmdqzegZh-EatnOVB7-A/view%3Fusp%3Ddrivesdk"
+alt="Physical wiring diagram of ESP32, RFID, and OLED on a breadboard."
+onerror="this.onerror=null; this.src='https://www.google.com/search?q=https://placehold.co/800x450/1e293b/f1f5f9%3Ftext%3DImage%2BPlaceholder%250AReplace%2Bwith%2BDirect%2BPublic%2BLink';">
+</div>
 </div>
 
 <!-- MFRC522 Table -->
@@ -221,8 +245,12 @@ Logs Sheet (Activity Log):
 <!-- Google Sheet Log Example -->
 
 <div class="my-6 p-4 border rounded-lg bg-gray-50">
-<p class="text-center font-semibold mb-2">Example of Automated Log Entry in Google Sheet</p>
-
+<p class="text-center font-semibold mb-2 text-xl">2. Example of Automated Log Entry in Google Sheet</p>
+<div class="image-container">
+<img src="https://www.google.com/search?q=https://placehold.co/800x450/1e293b/f1f5f9%3Ftext%3DGoogle%2BSheets%2BLog%2BImage"
+alt="Screenshot of Google Sheets log showing GRANTED and DENIED entries."
+onerror="this.onerror=null; this.src='https://www.google.com/search?q=https://placehold.co/800x450/1e293b/f1f5f9%3Ftext%3DImage%2BPlaceholder%250A(Google%2BSheet%2BLog)'">
+</div>
 </div>
 
 <h3 class="text-xl font-semibold text-gray-700 mb-2 mt-6">Step 2: Deploy Google Apps Script (Code 3)</h3>
@@ -305,7 +333,12 @@ const String APPS_SCRIPT_URL = "PASTE_YOUR_DEPLOYED_GOOGLE_APP_SCRIPT_URL_HERE";
 <!-- Serial Output Example -->
 
 <div class="my-6 p-4 border rounded-lg bg-gray-50">
-<p class="text-center font-semibold mb-2">Arduino Serial Monitor Output during Authentication</p>
+<p class="text-center font-semibold mb-2 text-xl">3. Arduino Serial Monitor Output during Authentication</p>
+<div class="image-container">
+<img src="https://www.google.com/search?q=https://placehold.co/800x200/1e293b/f1f5f9%3Ftext%3DSerial%2BMonitor%2BLog%2BImage"
+alt="Screenshot of Arduino Serial Monitor output showing HTTP request and response."
+onerror="this.onerror=null; this.src='https://www.google.com/search?q=https://placehold.co/800x200/1e293b/f1f5f9%3Ftext%3DImage%2BPlaceholder%250A(Serial%2BMonitor%2BLog)'">
+</div>
 </div>
 
 </div>
