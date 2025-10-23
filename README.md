@@ -69,7 +69,6 @@ This system provides a robust, cloud-integrated method for authenticating users.
 <div class="my-6 p-4 border rounded-lg bg-gray-50">
 <p class="text-center font-semibold mb-2 text-xl">1. Physical Setup and Wiring Connections</p>
 <p>"https://drive.google.com/file/d/1CjbkilMulPmuYmdqzegZh-EatnOVB7-A/view?usp=sharing"</p>
-<img src=
 </div>
 
 <!-- MFRC522 Table -->
@@ -281,15 +280,3 @@ const String APPS_SCRIPT_URL = "PASTE_YOUR_DEPLOYED_GOOGLE_APP_SCRIPT_URL_HERE";
 </div>
 </div>
 
-<!-- Serial Output Example -->
-
-<div class="my-6 p-4 border rounded-lg bg-gray-50">
-<p class="text-center font-semibold mb-2 text-xl">3. Arduino Serial Monitor Output during Authentication</p>
-<div class="image-container">
-<img src="https://www.google.com/search?q=https://placehold.co/800x200/1e293b/f1f5f9%3Ftext%3DSerial%2BMonitor%2BLog%2BImage"
-alt="Screenshot of Arduino Serial Monitor output showing HTTP request and response."
-onerror="this.onerror=null; this.src='https://www.google.com/search?q=https://placehold.co/800x200/1e293b/f1f5f9%3Ftext%3DImage%2BPlaceholder%250A(Serial%2BMonitor%2BLog)'">
-</div>
-</div>
-
-</div>
