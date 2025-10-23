@@ -68,15 +68,8 @@ This system provides a robust, cloud-integrated method for authenticating users.
 
 <div class="my-6 p-4 border rounded-lg bg-gray-50">
 <p class="text-center font-semibold mb-2 text-xl">1. Physical Setup and Wiring Connections</p>
-<div class="image-container">
-<!--
-IMPORTANT: Replace the placeholder URL below with a direct link to the image
-after setting the Google Drive permissions to "Anyone with the link can view."
--->
-<img src="https://drive.google.com/file/d/1CjbkilMulPmuYmdqzegZh-EatnOVB7-A/view?usp=sharing"
-alt="Physical wiring diagram of ESP32, RFID, and OLED on a breadboard."
-onerror="this.onerror=null; this.src='https://www.google.com/search?q=https://placehold.co/800x450/1e293b/f1f5f9%3Ftext%3DImage%2BPlaceholder%250AReplace%2Bwith%2BDirect%2BPublic%2BLink';">
-</div>
+<p>"https://drive.google.com/file/d/1CjbkilMulPmuYmdqzegZh-EatnOVB7-A/view?usp=sharing"</p>
+<img src=
 </div>
 
 <!-- MFRC522 Table -->
@@ -208,11 +201,7 @@ Logs Sheet (Activity Log):
 
 <div class="my-6 p-4 border rounded-lg bg-gray-50">
 <p class="text-center font-semibold mb-2 text-xl">2. Example of Automated Log Entry in Google Sheet</p>
-<div class="image-container">
-<img src="https://www.google.com/search?q=https://placehold.co/800x450/1e293b/f1f5f9%3Ftext%3DGoogle%2BSheets%2BLog%2BImage"
-alt="Screenshot of Google Sheets log showing GRANTED and DENIED entries."
-onerror="this.onerror=null; this.src='https://www.google.com/search?q=https://placehold.co/800x450/1e293b/f1f5f9%3Ftext%3DImage%2BPlaceholder%250A(Google%2BSheet%2BLog)'">
-</div>
+<p>"https://drive.google.com/file/d/1EUEJeJ81H8Gz1kxVjTnK9uXzTkJhzBQr/view?usp=sharing"</p>
 </div>
 
 <h3 class="text-xl font-semibold text-gray-700 mb-2 mt-6">Step 2: Deploy Google Apps Script (Code 3)</h3>
