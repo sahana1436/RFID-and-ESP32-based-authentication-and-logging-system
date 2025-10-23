@@ -1,248 +1,290 @@
-💳 ESP32 RFID IoT Access & Logging System
+<!-- The content below uses HTML and Tailwind CSS classes for improved readability and structure on platforms like GitHub. -->
 
+<script src="https://www.google.com/search?q=https://cdn.tailwindcss.com"></script>
+
+<style>
+@import url('https://www.google.com/search?q=https://fonts.googleapis.com/css2%3Ffamily%3DInter:wght%40400%3B600%3B700%26display%3Dswap');
+/* Global Font and Utility Styling */
+body { font-family: 'Inter', sans-serif; }
+.card { border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); }
+
+/* Code Block Styling */
+.code-block { background-color: #1e293b; color: #f8fafc; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+.inline-code { background-color: #fef9c3; color: #854d0e; padding: 0.1rem 0.3rem; border-radius: 0.25rem; font-weight: 600; }
+
+/* Table Styling */
+.table-header { background-color: #334155; color: #f8fafc; }
+.table-row-odd { background-color: #f1f5f9; }
+.table-row-even { background-color: #e2e8f0; }
+
+/* Alert/Note Styling */
+.alert-info { background-color: #e0f2fe; color: #075985; padding: 0.75rem; border-left: 4px solid #0ea5e9; border-radius: 0.5rem; }
+.alert-warning { background-color: #fffbeb; color: #92400e; padding: 0.75rem; border-left: 4px solid #f59e0b; border-radius: 0.5rem; }
+</style>
+
+<div class="p-6 md:p-10 lg:p-12">
+
+<h1 class="text-4xl font-extrabold text-gray-900 mb-2 flex items-center">
+<span class="mr-3">💳</span> ESP32 RFID IoT Access & Logging System
+</h1>
+<p class="text-xl text-gray-600 mb-8">
 A real-time access control solution built with an ESP32 microcontroller, an MFRC522 RFID reader, and a Google Sheets backend for centralized authentication and logging via Wi-Fi.
+</p>
 
-💡 Project Overview
+<!-- Overview -->
 
+<div class="card bg-white p-6 mb-8">
+<h2 class="text-2xl font-bold text-gray-800 mb-3 border-b pb-2">💡 Project Overview</h2>
+<p class="text-gray-700 leading-relaxed">
 This system provides a robust, cloud-integrated method for authenticating users. When an RFID tag is scanned, the ESP32 connects via Wi-Fi to a Google Apps Script endpoint. The script checks the tag's UID against an authorized list in a User Details Sheet and then logs the entire transaction (timestamp, UID, status) in a separate Logs Sheet. The outcome ("GRANTED" or "DENIED") is instantly displayed on the attached OLED screen.
-
-🛠️ Components Required
-
-Component
-
-Description
-
-Role
-
-ESP32 Development Board
-
-Microcontroller with integrated Wi-Fi.
-
-Reads data, connects to internet, controls display.
-
-MFRC522 RFID Reader
-
-Reads the unique ID (UID) from tags.
-
-Interface for physical authentication.
-
-0.96" OLED Display (I2C)
-
-Small display module.
-
-Displays status (Connecting, Checking, GRANTED/DENIED).
-
-Breadboard & Wires
-
-Prototyping tools.
-
-Connects the components.
-
-🔌 Wiring and Connections (Updated Pins)
-
-⚠️ Note: The pins used in the FINAL_CODE_INTEGRATED.ino are specific and differ from some common schematics. Please follow the table below exactly.
-
-MFRC522 RFID Reader (SPI)
-
-Component Pin
-
-ESP32 Pin (GPIO)
-
-Protocol
-
-Note
-
-RST
-
-GPIO 5
-
-SPI
-
-Reset Pin (RST_PIN)
-
-SDA (SS)
-
-GPIO 17
-
-SPI
-
-Slave Select (SS_PIN)
-
-MOSI
-
-GPIO 23
-
-SPI
-
-Default SPI MOSI
-
-MISO
-
-GPIO 19
-
-SPI
-
-Default SPI MISO
-
-SCK
-
-GPIO 18
-
-SPI
-
-Default SPI SCK
-
-3.3V
-
-3.3V
-
-Power
-
-MUST use 3.3V
-
-GND
-
-GND
-
-Ground
-
-
-
-OLED Display (I2C)
-
-Component Pin
-
-ESP32 Pin (GPIO)
-
-Protocol
-
-Note
-
-SCL
-
-GPIO 22
-
-I2C
-
-I2C Clock
-
-SDA
-
-GPIO 21
-
-I2C
-
-I2C Data
-
-VCC
-
-3.3V or 5V
-
-Power
-
-Check module specs
-
-GND
-
-GND
-
-Ground
-
-
-
-☁️ Google Sheets & Apps Script Backend Setup
-
-Step 1: Create Google Sheets
-
-You need two separate Google Sheets documents in your Drive:
-
+</p>
+</div>
+
+<!-- Components -->
+
+<h2 class="text-2xl font-bold text-gray-800 mb-4 mt-8">🛠️ Components Required</h2>
+<div class="overflow-x-auto card">
+<table class="min-w-full text-left text-sm font-light shadow-md">
+<thead class="table-header">
+<tr>
+<th scope="col" class="px-6 py-3">Component</th>
+<th scope="col" class="px-6 py-3">Description</th>
+<th scope="col" class="px-6 py-3">Role</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-row-odd">
+<td class="px-6 py-4 font-medium">ESP32 Development Board</td>
+<td class="px-6 py-4">Microcontroller with integrated Wi-Fi.</td>
+<td class="px-6 py-4">Reads data, connects to internet, controls display.</td>
+</tr>
+<tr class="table-row-even">
+<td class="px-6 py-4 font-medium">MFRC522 RFID Reader</td>
+<td class="px-6 py-4">Reads the unique ID (UID) from tags.</td>
+<td class="px-6 py-4">Interface for physical authentication.</td>
+</tr>
+<tr class="table-row-odd">
+<td class="px-6 py-4 font-medium">0.96" OLED Display (I2C)</td>
+<td class="px-6 py-4">Small display module.</td>
+<td class="px-6 py-4">Displays status (Connecting, Checking, GRANTED/DENIED).</td>
+</tr>
+<tr class="table-row-even">
+<td class="px-6 py-4 font-medium">Breadboard & Wires</td>
+<td class="px-6 py-4">Prototyping tools.</td>
+<td class="px-6 py-4">Connects the components.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="h-8"></div>
+
+<!-- Wiring Guide -->
+
+<h2 class="text-2xl font-bold text-gray-800 mb-4 mt-8">🔌 Wiring and Connections (Updated Pins)</h2>
+<div class="alert-warning mb-4">
+<p>&#9888; Note: The pins used in the <code class="inline-code">FINAL_CODE_INTEGRATED.ino</code> are specific and differ from some common schematics. Please follow the table below exactly.</p>
+</div>
+
+<!-- MFRC522 Table -->
+
+<h3 class="text-xl font-semibold text-gray-700 mb-2 mt-6">MFRC522 RFID Reader (SPI)</h3>
+<div class="overflow-x-auto card mb-6">
+<table class="min-w-full text-left text-sm font-light shadow-md">
+<thead class="table-header bg-blue-700">
+<tr>
+<th scope="col" class="px-6 py-3">Component Pin</th>
+<th scope="col" class="px-6 py-3">ESP32 Pin (GPIO)</th>
+<th scope="col" class="px-6 py-3">Protocol</th>
+<th scope="col" class="px-6 py-3">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-row-odd">
+<td class="px-6 py-2 font-medium">RST</td>
+<td class="px-6 py-2">GPIO 5</td>
+<td class="px-6 py-2">SPI</td>
+<td class="px-6 py-2">Reset Pin (<code class="inline-code">RST_PIN</code>)</td>
+</tr>
+<tr class="table-row-even">
+<td class="px-6 py-2 font-medium">SDA (SS)</td>
+<td class="px-6 py-2">GPIO 17</td>
+<td class="px-6 py-2">SPI</td>
+<td class="px-6 py-2">Slave Select (<code class="inline-code">SS_PIN</code>)</td>
+</tr>
+<tr class="table-row-odd">
+<td class="px-6 py-2">MOSI</td>
+<td class="px-6 py-2">GPIO 23</td>
+<td class="px-6 py-2">SPI</td>
+<td class="px-6 py-2">Default SPI MOSI</td>
+</tr>
+<tr class="table-row-even">
+<td class="px-6 py-2">MISO</td>
+<td class="px-6 py-2">GPIO 19</td>
+<td class="px-6 py-2">SPI</td>
+<td class="px-6 py-2">Default SPI MISO</td>
+</tr>
+<tr class="table-row-odd">
+<td class="px-6 py-2">SCK</td>
+<td class="px-6 py-2">GPIO 18</td>
+<td class="px-6 py-2">SPI</td>
+<td class="px-6 py-2">Default SPI SCK</td>
+</tr>
+<tr class="table-row-even bg-red-100">
+<td class="px-6 py-2 font-medium text-red-700">3.3V</td>
+<td class="px-6 py-2 text-red-700">3.3V</td>
+<td class="px-6 py-2">Power</td>
+<td class="px-6 py-2 text-red-700 font-bold">MUST use 3.3V</td>
+</tr>
+<tr class="table-row-odd">
+<td class="px-6 py-2">GND</td>
+<td class="px-6 py-2">GND</td>
+<td class="px-6 py-2">Ground</td>
+<td class="px-6 py-2"></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- OLED Table -->
+
+<h3 class="text-xl font-semibold text-gray-700 mb-2 mt-6">OLED Display (I2C)</h3>
+<div class="overflow-x-auto card mb-6">
+<table class="min-w-full text-left text-sm font-light shadow-md">
+<thead class="table-header bg-green-700">
+<tr>
+<th scope="col" class="px-6 py-3">Component Pin</th>
+<th scope="col" class="px-6 py-3">ESP32 Pin (GPIO)</th>
+<th scope="col" class="px-6 py-3">Protocol</th>
+<th scope="col" class="px-6 py-3">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-row-odd">
+<td class="px-6 py-2">SCL</td>
+<td class="px-6 py-2">GPIO 22</td>
+<td class="px-6 py-2">I2C</td>
+<td class="px-6 py-2">I2C Clock</td>
+</tr>
+<tr class="table-row-even">
+<td class="px-6 py-2">SDA</td>
+<td class="px-6 py-2">GPIO 21</td>
+<td class="px-6 py-2">I2C</td>
+<td class="px-6 py-2">I2C Data</td>
+</tr>
+<tr class="table-row-odd">
+<td class="px-6 py-2">VCC</td>
+<td class="px-6 py-2">3.3V or 5V</td>
+<td class="px-6 py-2">Power</td>
+<td class="px-6 py-2">Check module specs</td>
+</tr>
+<tr class="table-row-even">
+<td class="px-6 py-2">GND</td>
+<td class="px-6 py-2">GND</td>
+<td class="px-6 py-2">Ground</td>
+<td class="px-6 py-2"></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- Backend Setup -->
+
+<h2 class="text-2xl font-bold text-gray-800 mb-4 mt-8">☁️ Google Sheets & Apps Script Backend Setup</h2>
+
+<h3 class="text-xl font-semibold text-gray-700 mb-2">Step 1: Create Google Sheets</h3>
+<p class="text-gray-700 mb-4">You need two separate Google Sheets documents in your Drive:</p>
+<ul class="list-disc list-inside ml-4 text-gray-700 space-y-2">
+<li>
 User Details Sheet (Authentication Source):
-
-Create a sheet named Users.
-
-Column A must contain the Hex UID of all authorized RFID tags (e.g., B3BE6827).
-
+<ul class="list-circle list-inside ml-6">
+<li>Create a sheet named <code class="inline-code">Users</code>.</li>
+<li>Column A must contain the Hex UID of all authorized RFID tags (e.g., <code class="inline-code">B3BE6827</code>).</li>
+</ul>
+</li>
+<li>
 Logs Sheet (Activity Log):
+<ul class="list-circle list-inside ml-6">
+<li>Create a sheet named <code class="inline-code">Logs</code>.</li>
+<li>This sheet will automatically receive data (Timestamp, UID, Status).</li>
+</ul>
+</li>
+</ul>
 
-Create a sheet named Logs.
-
-This sheet will automatically receive data (Timestamp, UID, Status).
-
-Step 2: Deploy Google Apps Script (Code 3)
-
-Open either of your Google Sheets, go to Extensions > Apps Script.
-
-Copy the Apps Script code (provided in your project) into the Code.gs file.
-
-Update the configuration constants in the script with the IDs of your two sheets (the ID is the long string in the Sheet's URL).
-
-// Details to be filled by the user
+<h3 class="text-xl font-semibold text-gray-700 mb-2 mt-6">Step 2: Deploy Google Apps Script (Code 3)</h3>
+<ol class="list-decimal list-inside ml-4 space-y-3 text-gray-700">
+<li>Open either of your Google Sheets, go to Extensions > Apps Script.</li>
+<li>Copy the Apps Script code (provided in your project) into the <code class="inline-code">Code.gs</code> file.</li>
+<li>Update the configuration constants in the script with the IDs of your two sheets (the ID is the long string in the Sheet's URL).
+<div class="code-block mt-2">
+<pre>// Details to be filled by the user
 const USER_DETAILS_SHEET_ID = 'YOUR_USER_DETAILS_SHEET_ID_HERE';
 const LOGS_SHEET_ID = 'YOUR_LOGS_SHEET_ID_HERE';
 const USER_DETAILS_SHEET_NAME = 'Users';
-const LOGS_SHEET_NAME = 'Logs';
+const LOGS_SHEET_NAME = 'Logs';</pre>
+</div>
+</li>
+<li>Click Deploy > New Deployment.</li>
+<li>Set Type to Web app.</li>
+<li>Set Execute as to Me.</li>
+<li>Set Who has access to Anyone.</li>
+<li>Click Deploy and copy the Web App URL. This is your <code class="inline-code">APPS_SCRIPT_URL</code> needed for the ESP32 code.</li>
+</ol>
 
+<!-- Arduino IDE Setup -->
 
-Click Deploy > New Deployment.
+<h2 class="text-2xl font-bold text-gray-800 mb-4 mt-8">💻 Arduino IDE Setup</h2>
 
-Set Type to Web app.
+<h3 class="text-xl font-semibold text-gray-700 mb-2">Step 1: Install Libraries</h3>
+<p class="text-gray-700 mb-4">Install the following libraries using the Arduino Library Manager (Sketch > Include Library > Manage Libraries):</p>
+<ul class="list-disc list-inside ml-4 text-gray-700">
+<li>MFRC522 by Udo Klein</li>
+<li>Adafruit GFX Library by Adafruit</li>
+<li>Adafruit SSD1306 by Adafruit</li>
+</ul>
 
-Set Execute as to Me.
-
-Set Who has access to Anyone.
-
-Click Deploy and copy the Web App URL. This is your APPS_SCRIPT_URL needed for the ESP32 code.
-
-💻 Arduino IDE Setup
-
-Step 1: Install Libraries
-
-Install the following libraries using the Arduino Library Manager (Sketch > Include Library > Manage Libraries):
-
-MFRC522 by Udo Klein
-
-Adafruit GFX Library by Adafruit
-
-Adafruit SSD1306 by Adafruit
-
-Step 2: Configure and Upload Code
-
-Ensure the file is saved correctly: FINAL_CODE_INTEGRATED.ino must be inside a folder named FINAL_CODE_INTEGRATED (matching the file name).
-
-Open the .ino file and update the three configuration constants at the top with your credentials and deployed URL:
-
-// --- WIFI CONFIGURATION ---
+<h3 class="text-xl font-semibold text-gray-700 mb-2 mt-6">Step 2: Configure and Upload Code</h3>
+<ol class="list-decimal list-inside ml-4 space-y-3 text-gray-700">
+<li>Ensure the file is saved correctly: <code class="inline-code">FINAL_CODE_INTEGRATED.ino</code> must be inside a folder named <code class="inline-code">FINAL_CODE_INTEGRATED</code> (matching the file name).</li>
+<li>Open the <code class="inline-code">.ino</code> file and update the three configuration constants at the top with your credentials and deployed URL:
+<div class="code-block mt-2">
+<pre>// --- WIFI CONFIGURATION ---
 const char* ssid = "YOUR_WIFI_NAME";
 const char* password = "YOUR_WIFI_PASSWORD";
 
 // --- GOOGLE APPS SCRIPT ENDPOINT ---
-const String APPS_SCRIPT_URL = "PASTE_YOUR_DEPLOYED_GOOGLE_APP_SCRIPT_URL_HERE";
+const String APPS_SCRIPT_URL = "PASTE_YOUR_DEPLOYED_GOOGLE_APP_SCRIPT_URL_HERE";</pre>
+</div>
+</li>
+<li>Select your board (ESP32 Dev Module) and the correct Port.</li>
+<li>Click Upload.</li>
 
+</ol>
 
-Select your board (ESP32 Dev Module) and the correct Port.
+<!-- Execution Flow -->
 
-Click Upload.
+<h2 class="text-2xl font-bold text-gray-800 mb-4 mt-8">🚀 System Execution Flow (Pattern)</h2>
 
-🚀 System Execution Flow (Pattern)
+<div class="flex flex-wrap lg:flex-nowrap gap-6">
+<div class="w-full lg:w-1/2">
+<h3 class="text-xl font-semibold text-gray-700 mb-2">Device Side</h3>
+<ol class="list-decimal list-inside ml-4 space-y-3 text-gray-700 card p-4 bg-blue-50">
+<li>Initialization: ESP32 connects to Wi-Fi. OLED shows "WiFi OK" then "Scan a Card".</li>
+<li>Scan: User taps an RFID tag. MFRC522 reads the Hex UID (e.g., <code class="inline-code">B3BE6827</code>).</li>
+<li>Request: ESP32 constructs an HTTP request: <code class="inline-code">APPS_SCRIPT_URL?uid=B3BE6827</code>. OLED shows "Checking...".</li>
+<li>Response: ESP32 receives the status back from the script ("GRANTED" or "DENIED").</li>
+<li>Display: OLED shows the final status and the UID.</li>
+</ol>
+</div>
+<div class="w-full lg:w-1/2">
+<h3 class="text-xl font-semibold text-gray-700 mb-2">Backend Side (Apps Script)</h3>
+<ol class="list-decimal list-inside ml-4 space-y-3 text-gray-700 card p-4 bg-green-50">
+<li>Input: Script receives the UID parameter from the ESP32.</li>
+<li>Authentication: Checks the UID against the <code class="inline-code">Users</code> sheet. Determines if access is GRANTED or DENIED.</li>
+<li>Logging: Appends a new row to the <code class="inline-code">Logs</code> sheet with the timestamp, UID, and determined status.</li>
+<li>Output: Returns the final status string ("GRANTED" or "DENIED") as plain text to the ESP32.</li>
+</ol>
+</div>
+</div>
 
-Device Side
-
-Initialization: ESP32 connects to Wi-Fi. OLED shows "WiFi OK" then "Scan a Card".
-
-Scan: User taps an RFID tag. MFRC522 reads the Hex UID (e.g., B3BE6827).
-
-Request: ESP32 constructs an HTTP request: APPS_SCRIPT_URL?uid=B3BE6827. OLED shows "Checking...".
-
-Response: ESP32 receives the status back from the script ("GRANTED" or "DENIED").
-
-Display: OLED shows the final status and the UID.
-
-Backend Side (Apps Script)
-
-Input: Script receives the UID parameter from the ESP32.
-
-Authentication: Checks the UID against the Users sheet. Determines if access is GRANTED or DENIED.
-
-Logging: Appends a new row to the Logs sheet with the timestamp, UID, and determined status.
-
-Output: Returns the final status string ("GRANTED" or "DENIED") as plain text to the ESP32.
+</div>
