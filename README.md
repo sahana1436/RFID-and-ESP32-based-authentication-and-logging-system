@@ -86,6 +86,13 @@ This system provides a robust, cloud-integrated method for authenticating users.
 <p>&#9888; Note: The pins used in the <code class="inline-code">FINAL_CODE_INTEGRATED.ino</code> are specific and differ from some common schematics. Please follow the table below exactly.</p>
 </div>
 
+<!-- Physical Wiring Diagram Integration -->
+
+<div class="my-6 p-4 border rounded-lg bg-gray-50">
+<p class="text-center font-semibold mb-2">Physical Setup and Wiring Connections</p>
+
+</div>
+
 <!-- MFRC522 Table -->
 
 <h3 class="text-xl font-semibold text-gray-700 mb-2 mt-6">MFRC522 RFID Reader (SPI)</h3>
@@ -211,6 +218,13 @@ Logs Sheet (Activity Log):
 </li>
 </ul>
 
+<!-- Google Sheet Log Example -->
+
+<div class="my-6 p-4 border rounded-lg bg-gray-50">
+<p class="text-center font-semibold mb-2">Example of Automated Log Entry in Google Sheet</p>
+
+</div>
+
 <h3 class="text-xl font-semibold text-gray-700 mb-2 mt-6">Step 2: Deploy Google Apps Script (Code 3)</h3>
 <ol class="list-decimal list-inside ml-4 space-y-3 text-gray-700">
 <li>Open either of your Google Sheets, go to Extensions > Apps Script.</li>
@@ -254,6 +268,7 @@ const char* password = "YOUR_WIFI_PASSWORD";
 
 // --- GOOGLE APPS SCRIPT ENDPOINT ---
 const String APPS_SCRIPT_URL = "PASTE_YOUR_DEPLOYED_GOOGLE_APP_SCRIPT_URL_HERE";</pre>
+
 </div>
 </li>
 <li>Select your board (ESP32 Dev Module) and the correct Port.</li>
@@ -285,6 +300,12 @@ const String APPS_SCRIPT_URL = "PASTE_YOUR_DEPLOYED_GOOGLE_APP_SCRIPT_URL_HERE";
 <li>Output: Returns the final status string ("GRANTED" or "DENIED") as plain text to the ESP32.</li>
 </ol>
 </div>
+</div>
+
+<!-- Serial Output Example -->
+
+<div class="my-6 p-4 border rounded-lg bg-gray-50">
+<p class="text-center font-semibold mb-2">Arduino Serial Monitor Output during Authentication</p>
 </div>
 
 </div>
